@@ -1,7 +1,7 @@
 # Astrivix LMS - Next-Generation Ed-Tech Platform 🚀
 *(Formerly Nano Robotics & Embed Technologies)*
 
-<img src='./frontend/public/nret-logo.png' alt='Astrivix Logo' width="200" />
+<img src='./frontend/src/assets/Logo/logo.jpg' alt='Astrivix Logo' width="200" />
 
 ## About Astrivix 🌟
 

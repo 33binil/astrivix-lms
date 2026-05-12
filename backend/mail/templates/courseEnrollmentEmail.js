@@ -3,7 +3,7 @@ exports.courseEnrollmentEmail = (courseName, name) => {
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Course Registration Confirmation | NRET</title>
+	<title>Course Registration Confirmation | Astrivix</title>
 	<style>
 		body {
 			background-color: #f8fafc;
