@@ -28,8 +28,10 @@ app.use(cookieParser());
 const allowedOrigins = [
   'http://localhost:5173', // Frontend development server
   'http://localhost:3000', // Common frontend port
-  'https://nano-robotics-embed-technologies.vercel.app', // Vercel deployment URL
-];
+  'https://nano-robotics-embed-technologies.vercel.app', // Old Vercel deployment URL
+  'https://astrivix-lms.vercel.app', // New Vercel deployment URL
+  process.env.FRONTEND_URL, // From Render environment variable
+].filter(Boolean);
 
 app.use(
   cors({
