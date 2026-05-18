@@ -151,12 +151,9 @@ function Course_Card({ course, Height, viewMode = "grid" }) {
               <span className="text-xl font-bold text-green-600">Free</span>
             )}
           </div>
-          <Link
-            to={`/courses/${course._id}`}
-            className="mt-3 w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white text-center font-medium rounded-lg transition-colors duration-300"
-          >
+          <span className="mt-3 w-full py-2 px-4 bg-blue-600 group-hover:bg-blue-700 text-white text-center font-medium rounded-lg transition-colors duration-300 cursor-pointer">
             Course Details
-          </Link>
+          </span>
         </div>
       </div>
     </Link>

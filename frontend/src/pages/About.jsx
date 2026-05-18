@@ -28,7 +28,7 @@ const About = () => {
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="w-[150px] sm:w-[290px] lg:w-[290px] h-[250px] sm:h-[440px] lg:h-[440px] bg-slate-800 dark:bg-slate-700 rounded-[125px_125px_125px_0px] mx-auto sm:mx-0 overflow-hidden shadow-lg"
                         >
-                            <img src="/abou1.png" alt="About Us" className="w-full h-full object-cover" />
+                            <img src="/abou1.avif" alt="About Us" className="w-full h-full object-cover" />
                         </motion.div>
                         <motion.div 
                             initial={{ opacity: 0, scale: 0.8 }}
@@ -36,7 +36,7 @@ const About = () => {
                             transition={{ duration: 0.6, delay: 0.3 }}
                             className="w-[130px] sm:w-[265px] lg:w-[265px] h-[130px] sm:h-[265px] lg:h-[265px] bg-slate-800 dark:bg-slate-700 rounded-full self-center mx-auto sm:mx-0 overflow-hidden shadow-lg"
                         >
-                            <img src="/about2.png" alt="About Us 2" className="w-full h-full object-cover" />
+                            <img src="/about2.avif" alt="About Us 2" className="w-full h-full object-cover" />
                         </motion.div>
                         <motion.div 
                             initial={{ opacity: 0, y: 30 }}
@@ -53,7 +53,7 @@ const About = () => {
                             transition={{ duration: 0.6, delay: 0.5 }}
                             className="w-[150px] sm:w-[290px] lg:w-[290px] h-[130px] sm:h-[400px] lg:h-[400px] bg-slate-800 dark:bg-slate-700 rounded-[0px_125px_125px_125px] mx-auto sm:mx-0 overflow-hidden shadow-lg"
                         >
-                            <img src="/about3.png" alt="About Us 3" className="w-full h-full object-cover" />
+                            <img src="/about3.avif" alt="About Us 3" className="w-full h-full object-cover" />
                         </motion.div>
                     </div>
                 </motion.div>
