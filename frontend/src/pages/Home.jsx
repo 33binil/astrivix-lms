@@ -11,6 +11,18 @@ import HomeImage from '../assets/Images/Home.png';
 import Course_Slider from '../components/core/Catalog/Course_Slider';
 import { getAllCourses } from '../services/operations/courseDetailsAPI';
 
+// Import marquee images
+import bg1 from '../assets/Images/gallery1.avif';
+import bg2 from '../assets/Images/gallery2.avif';
+import bg3 from '../assets/Images/gallery3.avif';
+import bg4 from '../assets/Images/gallery4.avif';
+import bg5 from '../assets/Images/gallery5.avif';
+import bg6 from '../assets/Images/gallery6.avif';
+import bg7 from '../assets/Images/gallery7.avif';
+import bg8 from '../assets/Images/gallery8.avif';
+
+const marqueeImages = [bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8, bg9, bg10, bg11];
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -384,13 +396,13 @@ const Home = () => {
         {/* Infinite Scrolling Marquee */}
         <div className="relative w-full overflow-hidden flex bg-slate-50 dark:bg-[#060c18] py-12 border-y border-slate-200 dark:border-slate-800/80 shadow-inner transition-colors duration-500">
           <motion.div
-            animate={{ x: [0, -1920] }}
+            animate={{ x: [0, -4202] }}
             transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
             className="flex gap-8 whitespace-nowrap pl-8"
           >
-            {[1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4].map((item, idx) => (
+            {[...marqueeImages, ...marqueeImages, ...marqueeImages].map((imgSrc, idx) => (
               <div key={idx} className="w-[350px] h-[250px] rounded-3xl overflow-hidden relative shadow-[0_10px_30px_rgba(0,0,0,0.05)] dark:shadow-none shrink-0 border border-slate-100 dark:border-slate-800 bg-white dark:bg-[#0a1120] p-3 hover:-translate-y-2 transition-all duration-300">
-                <img src={`/src${(item % 4) + 1}.png`} alt="Gallery" className="w-full h-full object-contain rounded-2xl mix-blend-multiply dark:mix-blend-screen dark:brightness-110" />
+                <img src={imgSrc} alt={`Gallery Image ${idx + 1}`} className="w-full h-full object-cover rounded-2xl" />
               </div>
             ))}
           </motion.div>
