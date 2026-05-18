@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Lottie from 'lottie-react';
-import { FaChalkboardTeacher, FaGraduationCap, FaArrowRight, FaCode, FaLaptopCode, FaCubes, FaUserSecret } from 'react-icons/fa';
+import { FaChalkboardTeacher, FaGraduationCap, FaArrowRight, FaCode, FaLaptopCode, FaCubes, FaUserSecret, FaCloud, FaPenFancy } from 'react-icons/fa';
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
 import animationData from "../animations/1760540193944.json";
@@ -254,8 +254,8 @@ const Home = () => {
               { icon: <FaCode size={28} />, title: "AI & ML", color: "from-emerald-400 to-teal-600", lightBg: "bg-emerald-50", ring: "hover:ring-emerald-200 dark:hover:ring-emerald-900/50" },
               { icon: <FaCubes size={28} />, title: "IoT & Robotics", color: "from-amber-400 to-orange-500", lightBg: "bg-amber-50", ring: "hover:ring-amber-200 dark:hover:ring-amber-900/50" },
               { icon: <FaUserSecret size={28} />, title: "Cybersecurity", color: "from-rose-400 to-red-500", lightBg: "bg-rose-50", ring: "hover:ring-rose-200 dark:hover:ring-rose-900/50" },
-              { icon: <img src="/src1.png" className="w-7 h-7 object-contain mix-blend-screen opacity-100 invert" alt="UIUX" />, title: "UI/UX Design", color: "from-purple-500 to-fuchsia-600", lightBg: "bg-purple-50", ring: "hover:ring-purple-200 dark:hover:ring-purple-900/50" },
-              { icon: <img src="/src2.png" className="w-7 h-7 object-contain mix-blend-screen opacity-100 invert" alt="Cloud" />, title: "Cloud Computing", color: "from-sky-400 to-blue-600", lightBg: "bg-sky-50", ring: "hover:ring-sky-200 dark:hover:ring-sky-900/50" },
+              { icon: <FaPenFancy size={28} />, title: "UI/UX Design", color: "from-purple-500 to-fuchsia-600", lightBg: "bg-purple-50", ring: "hover:ring-purple-200 dark:hover:ring-purple-900/50" },
+              { icon: <FaCloud size={28} />, title: "Cloud Computing", color: "from-sky-400 to-blue-600", lightBg: "bg-sky-50", ring: "hover:ring-sky-200 dark:hover:ring-sky-900/50" },
             ].map((domain, index) => (
               <motion.div
                 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }} viewport={{ once: true }}

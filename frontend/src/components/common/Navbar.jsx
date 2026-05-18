@@ -12,11 +12,13 @@ import MobileProfileDropDown from '../core/Auth/MobileProfileDropDown'
 import { AiOutlineShoppingCart } from "react-icons/ai"
 import { MdKeyboardArrowDown } from "react-icons/md"
 import { FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi"
+import { useTheme } from '../../context/ThemeContext'
 
 
 
 
 const Navbar = () => {
+    const { isDarkMode, toggleDarkMode } = useTheme();
     // console.log("Printing base url: ", import.meta.env.VITE_APP_BASE_URL);
     const { token } = useSelector((state) => state.auth);
     const { user } = useSelector((state) => state.profile);
@@ -26,30 +28,7 @@ const Navbar = () => {
 
     const [subLinks, setSubLinks] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [isDarkMode, setIsDarkMode] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-    useEffect(() => {
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            setIsDarkMode(true);
-            document.documentElement.classList.add('dark');
-        } else {
-            setIsDarkMode(false);
-            document.documentElement.classList.remove('dark');
-        }
-    }, []);
-
-    const toggleDarkMode = () => {
-        if (isDarkMode) {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-            setIsDarkMode(false);
-        } else {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-            setIsDarkMode(true);
-        }
-    };
 
 
     const fetchSublinks = async () => {
