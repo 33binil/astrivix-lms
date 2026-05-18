@@ -21,7 +21,7 @@ import bg6 from '../assets/Images/gallery6.avif';
 import bg7 from '../assets/Images/gallery7.avif';
 import bg8 from '../assets/Images/gallery8.avif';
 
-const marqueeImages = [bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8, bg9, bg10, bg11];
+const marqueeImages = [bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8];
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
