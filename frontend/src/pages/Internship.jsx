@@ -36,8 +36,8 @@ const Internship = () => {
     const matchesFilter = filter === "all" || internship.type === filter
     const skillsArray = internship.skills || []
     const matchesSearch = internship.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         internship.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         skillsArray.some(skill => skill?.toLowerCase().includes(searchTerm.toLowerCase()))
+      internship.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      skillsArray.some(skill => skill?.toLowerCase().includes(searchTerm.toLowerCase()))
     return matchesFilter && matchesSearch
   })
 
@@ -85,7 +85,7 @@ const Internship = () => {
           <p className="font-['Happy_Monkey'] text-lg sm:text-xl lg:text-2xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed mb-8 transition-colors duration-500">
             Gain real-world experience through our internship programs. Learn from industry experts and build your future in tech.
           </p>
-          
+
           {/* Search Bar */}
           <div className="max-w-2xl mx-auto">
             <input
@@ -104,7 +104,7 @@ const Internship = () => {
               <div className="text-slate-600 dark:text-slate-400">Partner Companies</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">500+</div>
+              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">100+</div>
               <div className="text-slate-600 dark:text-slate-400">Interns Placed</div>
             </div>
             <div className="text-center">
@@ -129,17 +129,16 @@ const Internship = () => {
               <button
                 key={category}
                 onClick={() => setFilter(category)}
-                className={`px-4 py-2 rounded-full font-medium transition-colors ${
-                  filter === category
+                className={`px-4 py-2 rounded-full font-medium transition-colors ${filter === category
                     ? "bg-blue-600 text-white"
                     : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-600 hover:bg-gray-100 dark:hover:bg-slate-700"
-                }`}
+                  }`}
               >
                 {category === "all" ? "All" : category}
               </button>
             ))}
           </div>
-          
+
           <div className="mt-4 text-slate-700 dark:text-slate-300 transition-colors duration-500">
             Showing <span className="font-bold">{filteredInternships.length}</span> internships
           </div>
@@ -236,8 +235,8 @@ const Internship = () => {
                 No Internships Found
               </h3>
               <p className="text-slate-600 dark:text-slate-400 mb-6 transition-colors duration-500">
-                {searchTerm || filter !== "all" 
-                  ? "Try adjusting your search or filter criteria" 
+                {searchTerm || filter !== "all"
+                  ? "Try adjusting your search or filter criteria"
                   : "No internships available at the moment. Check back soon!"}
               </p>
               {(searchTerm || filter !== "all") && (

@@ -80,7 +80,7 @@ const Projects = () => {
             Our <span className="text-blue-600 dark:text-blue-400">Projects</span>
           </h1>
           <p className="font-['Happy_Monkey'] text-lg sm:text-xl lg:text-2xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed mb-8 transition-colors duration-500">
-            Explore our portfolio of innovative projects showcasing cutting-edge technology and creative solutions.
+            Explore real-time projects developed in AI, Robotics, IoT, Embedded Systems, and emerging technologies through practical learning and innovation-driven development.
           </p>
           
           {/* Search Bar */}
