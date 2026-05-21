@@ -13,15 +13,15 @@ import { fadeIn } from "../components/common/motionFrameVarients"
 const About = () => {
     return (
         <div className="bg-slate-50 dark:bg-[#000814] transition-colors duration-500">
-            <div className="flex flex-col relative lg:flex-row px-6 sm:px-10 lg:px-20 py-8 sm:py-12 lg:py-16 gap-0 sm:gap-12 lg:gap-12 w-full bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 transition-colors duration-500">
+            <div className="flex flex-col relative lg:flex-row px-8 sm:px-16 lg:px-28 py-16 sm:py-24 lg:py-32 gap-0 sm:gap-8 lg:gap-8 w-full min-h-[60vh] sm:min-h-[70vh] lg:min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 transition-colors duration-500">
                 {/* Left side with circles */}
                 <motion.div 
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="flex-1 lg:pr-12 self-center"
+                    className="flex-1 lg:pr-4 self-center"
                 >
-                    <div className="grid grid-cols-2 sm:grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8 h-auto sm:h-[600px] lg:h-[880px]">
+                    <div className="grid grid-cols-2 sm:grid-cols-2 grid-rows-2 gap-2 sm:gap-3 lg:gap-3 h-auto sm:h-[600px] lg:h-[880px]">
                         <motion.div 
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
@@ -63,7 +63,7 @@ const About = () => {
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-                    className="flex-1 lg:pl-8 top-0 sm:top-20 relative flex flex-col justify-center gap-6"
+                    className="flex-1 lg:pl-2 top-0 sm:top-20 relative flex flex-col justify-center gap-6"
                 >
                     <motion.h2 
                         initial={{ opacity: 0, y: 20 }}
