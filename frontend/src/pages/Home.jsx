@@ -66,7 +66,7 @@ const Home = () => {
   };
 
   return (
-    <div className="relative w-full bg-slate-50 dark:bg-[#000814] overflow-hidden font-inter transition-colors duration-500">
+    <div className="relative w-full bg-slate-50 dark:bg-[#000814] overflow-x-hidden font-inter transition-colors duration-500">
       {/* Navbar Overlay */}
       <div className="fixed top-0 left-0 w-full z-50 shadow-sm bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-gray-100 dark:border-slate-800 transition-colors duration-500">
         <Navbar />
@@ -172,24 +172,25 @@ const Home = () => {
         {/* Glow Effects */}
         <div className="absolute top-0 right-[-10%] w-[50%] h-[100%] rounded-full bg-blue-300/40 dark:bg-blue-600/10 blur-[120px] z-0 pointer-events-none"></div>
 
+        {/* Learn Modern Skills, section */}
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <motion.div
-              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
+              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
               className="lg:w-1/2 order-2 lg:order-1"
             >
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
-                Learn Modern Skills <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600 dark:from-cyan-400 dark:to-blue-500">From the Experts</span>
+                Learn Future-Ready Technologies <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600 dark:from-cyan-400 dark:to-blue-500">From Industry Experts</span>
               </h2>
               <p className="text-slate-600 dark:text-slate-400 text-lg mb-10 leading-relaxed font-light">
-                Whether you want to build web applications, train AI models, or design beautiful interfaces, our curriculum adapts to the latest industry standards.
+                Master AI, Robotics, IoT, Embedded Systems, and modern technologies through practical learning designed for real-world innovation and career growth.
               </p>
               <div className="space-y-6">
                 {[
-                  { title: "Practical Experience", desc: "Build real projects that you can showcase on your portfolio." },
-                  { title: "Expert Mentorship", desc: "Get feedback and guidance from seasoned industry professionals." },
-                  { title: "Lifetime Access", desc: "Learn at your own pace and revisit course material anytime." }
+                  { title: "Hands-On Practical Experience", desc: "Work on real-time industry projects including AI bots, smart automation systems, embedded solutions, and IoT applications to build a strong portfolio." },
+                  { title: "Expert Industry Mentorship", desc: "Get guided by experienced mentors, researchers, and professionals specializing in AI, Machine Learning, Robotics, and Embedded Technologies." },
+                  { title: "Flexible Learning Access", desc: "Learn at your own pace with flexible online and offline training programs, workshops, internships, and continuous mentor support." }
                 ].map((item, idx) => (
                   <motion.div variants={fadeInUp} key={idx} className="flex gap-4 items-start bg-white dark:bg-[#0a1120] p-5 rounded-2xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-colors duration-300">
                     <div className="mt-1 w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center flex-shrink-0 border border-blue-200 dark:border-blue-500/30">
