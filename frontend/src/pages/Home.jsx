@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Lottie from 'lottie-react';
-import { FaChalkboardTeacher, FaGraduationCap, FaArrowRight, FaCode, FaLaptopCode, FaCubes, FaUserSecret, FaCloud, FaPenFancy } from 'react-icons/fa';
+import { FaChalkboardTeacher, FaGraduationCap, FaArrowRight, FaLaptopCode, FaBrain, FaWifi, FaMicrochip, FaRobot, FaPython } from 'react-icons/fa';
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
 import animationData from "../animations/1760540193944.json";
@@ -251,12 +251,54 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { icon: <FaLaptopCode size={28} />, title: "Web & App Dev", color: "from-blue-500 to-indigo-600", lightBg: "bg-blue-50", ring: "hover:ring-blue-200 dark:hover:ring-blue-900/50" },
-              { icon: <FaCode size={28} />, title: "AI & ML", color: "from-emerald-400 to-teal-600", lightBg: "bg-emerald-50", ring: "hover:ring-emerald-200 dark:hover:ring-emerald-900/50" },
-              { icon: <FaCubes size={28} />, title: "IoT & Robotics", color: "from-amber-400 to-orange-500", lightBg: "bg-amber-50", ring: "hover:ring-amber-200 dark:hover:ring-amber-900/50" },
-              { icon: <FaUserSecret size={28} />, title: "Cybersecurity", color: "from-rose-400 to-red-500", lightBg: "bg-rose-50", ring: "hover:ring-rose-200 dark:hover:ring-rose-900/50" },
-              { icon: <FaPenFancy size={28} />, title: "UI/UX Design", color: "from-purple-500 to-fuchsia-600", lightBg: "bg-purple-50", ring: "hover:ring-purple-200 dark:hover:ring-purple-900/50" },
-              { icon: <FaCloud size={28} />, title: "Cloud Computing", color: "from-sky-400 to-blue-600", lightBg: "bg-sky-50", ring: "hover:ring-sky-200 dark:hover:ring-sky-900/50" },
+              { 
+                icon: <FaBrain size={28} />, 
+                title: "AI & ML", 
+                desc: "Learn Artificial Intelligence and Machine Learning through practical applications and real-time projects.",
+                color: "from-emerald-400 to-teal-600", 
+                lightBg: "bg-emerald-50", 
+                ring: "hover:ring-emerald-200 dark:hover:ring-emerald-900/50" 
+              },
+              { 
+                icon: <FaWifi size={28} />, 
+                title: "IoT", 
+                desc: "Build smart connected systems using sensors, automation, and Internet of Things technologies.",
+                color: "from-amber-400 to-orange-500", 
+                lightBg: "bg-amber-50", 
+                ring: "hover:ring-amber-200 dark:hover:ring-amber-900/50" 
+              },
+              { 
+                icon: <FaMicrochip size={28} />, 
+                title: "Embedded Systems", 
+                desc: "Gain hands-on experience in microcontrollers, hardware programming, and embedded technologies.",
+                color: "from-rose-400 to-red-500", 
+                lightBg: "bg-rose-50", 
+                ring: "hover:ring-rose-200 dark:hover:ring-rose-900/50" 
+              },
+              { 
+                icon: <FaRobot size={28} />, 
+                title: "Robotics", 
+                desc: "Explore robotics through automation systems and AI-powered robotic projects.",
+                color: "from-sky-400 to-blue-600", 
+                lightBg: "bg-sky-50", 
+                ring: "hover:ring-sky-200 dark:hover:ring-sky-900/50" 
+              },
+              { 
+                icon: <FaPython size={28} />, 
+                title: "Python", 
+                desc: "Develop programming skills for AI, automation, and software development using Python.",
+                color: "from-purple-500 to-fuchsia-600", 
+                lightBg: "bg-purple-50", 
+                ring: "hover:ring-purple-200 dark:hover:ring-purple-900/50" 
+              },
+              { 
+                icon: <FaLaptopCode size={28} />, 
+                title: "Web Development", 
+                desc: "Build responsive and modern web applications using industry-standard technologies.",
+                color: "from-blue-500 to-indigo-600", 
+                lightBg: "bg-blue-50", 
+                ring: "hover:ring-blue-200 dark:hover:ring-blue-900/50" 
+              },
             ].map((domain, index) => (
               <motion.div
                 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }} viewport={{ once: true }}
@@ -267,7 +309,7 @@ const Home = () => {
                   {domain.icon}
                 </div>
                 <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-indigo-600 dark:group-hover:from-blue-400 dark:group-hover:to-indigo-400 transition-colors">{domain.title}</h3>
-                <p className="text-slate-500 dark:text-slate-400 mb-8 leading-relaxed font-medium transition-colors duration-500">Comprehensive pathways designed for absolute beginners to advanced practitioners.</p>
+                <p className="text-slate-500 dark:text-slate-400 mb-8 leading-relaxed font-medium transition-colors duration-500">{domain.desc}</p>
                 <div className="flex items-center text-sm font-bold text-slate-400 dark:text-slate-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors uppercase tracking-wide">
                   View Programs <FaArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -292,8 +334,8 @@ const Home = () => {
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div className="max-w-2xl">
               <span className="text-indigo-600 dark:text-indigo-400 font-bold tracking-wider uppercase text-sm mb-3 block transition-colors duration-500">Real World Experience</span>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4 transition-colors duration-500">Bootcamp & Internships</h2>
-              <p className="text-slate-600 dark:text-slate-400 font-medium text-lg transition-colors duration-500">Elevate your resume by building production-ready projects under expert supervision.</p>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4 transition-colors duration-500">Internships & Training Programs</h2>
+              <p className="text-slate-600 dark:text-slate-400 font-medium text-lg transition-colors duration-500">Gain practical experience through hands-on internships, workshops, and real-time industry projects guided by expert mentors.</p>
             </div>
             <button onClick={() => navigate('/internship')} className="shrink-0 px-6 py-3 rounded-full bg-white dark:bg-[#161D29] border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-bold hover:border-indigo-600 dark:hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 shadow-sm hover:shadow-md flex items-center gap-2">
               Explore All <FaArrowRight />
@@ -302,10 +344,10 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { img: "/prg1.jpeg", title: "Robotics Engineering", tag: "Hardware", desc: "Build autonomous physical robots." },
-              { img: "/prg2.jpeg", title: "AI Integration", tag: "Software", desc: "Deploy ML models to production." },
-              { img: "/prg3.jpeg", title: "Modern UI/UX", tag: "Design", desc: "Design interfaces users fall in love with." },
-              { img: "/prg4.jpeg", title: "IoT Architecture", tag: "Hardware + Software", desc: "Connect the digital & physical worlds." }
+              { img: "/prg1.jpeg", title: "Robotics Engineering", tag: "Hardware", desc: "Build and work on robotics projects with practical learning and real-world applications." },
+              { img: "/prg2.jpeg", title: "AI & ML", tag: "Software", desc: "Develop AI and Machine Learning solutions through project-based training and practical implementation." },
+              { img: "/prg3.jpeg", title: "Embedded Systems", tag: "Hardware", desc: "Learn hardware programming, automation, and embedded technologies through hands-on experience." },
+              { img: "/prg4.jpeg", title: "IoT Applications", tag: "Hardware + Software", desc: "Build smart connected systems using sensors, automation, and IoT technologies." }
             ].map((prog, idx) => (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4, delay: idx * 0.1 }} viewport={{ once: true }}
@@ -334,12 +376,11 @@ const Home = () => {
         {/* Abstract shapes */}
         <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] bg-blue-400/30 dark:bg-blue-600/10 rounded-full blur-[120px] transition-colors duration-500"></div>
         <div className="absolute bottom-[-20%] left-[-10%] w-[50%] h-[50%] bg-purple-400/30 dark:bg-purple-600/10 rounded-full blur-[120px] transition-colors duration-500"></div>
-
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <span className="text-blue-600 dark:text-blue-500 font-bold tracking-wider uppercase text-sm mb-3 block transition-colors duration-500">Expert Guidance</span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6">Learn from the Best</h2>
-            <p className="text-lg text-slate-600 dark:text-slate-500 font-light transition-colors duration-500">Our advisory board consists of industry veterans and academic researchers dedicated to crafting the perfect curriculum.</p>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6">Learn from Industry Experts</h2>
+            <p className="text-lg text-slate-600 dark:text-slate-500 font-light transition-colors duration-500">Our mentors and curriculum advisors are dedicated to providing practical, industry-focused learning in AI, Robotics, IoT, and Embedded Systems.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 max-w-6xl mx-auto">
@@ -349,16 +390,16 @@ const Home = () => {
               className="flex flex-col sm:flex-row bg-white dark:bg-[#08101e] backdrop-blur-sm rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl transition-colors duration-500"
             >
               <div className="sm:w-2/5 p-2 bg-gradient-to-br from-indigo-500 to-purple-600 dark:from-indigo-600/80 dark:to-purple-700/80">
-                <img src="/boy.png" alt="Dr Kareem Unisa" className="w-full h-full object-cover rounded-3xl" />
+                <img src="/girl.png" alt="Dr. Kareem Unisa (PhD)" className="w-full h-full object-cover rounded-3xl" />
               </div>
               <div className="sm:w-3/5 p-8 lg:p-10 flex flex-col justify-center">
-                <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white mb-1">Akshay Kamal</h3>
-                <p className="text-indigo-600 dark:text-indigo-300 font-bold text-sm tracking-wide uppercase mb-6 transition-colors duration-500">Founder & Research Director</p>
+                <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white mb-1">Dr. Kareem Unisa (PhD)</h3>
+                <p className="text-indigo-600 dark:text-indigo-300 font-bold text-sm tracking-wide uppercase mb-6 transition-colors duration-500">Founder, NRET</p>
                 <div className="w-12 h-1 bg-slate-200 dark:bg-slate-800 mb-6 rounded-full transition-colors duration-500"></div>
                 <ul className="space-y-3 text-slate-700 dark:text-slate-400 text-sm font-medium transition-colors duration-500">
-                  <li className="flex items-start gap-3"><FaCheckCircle className="text-indigo-500 dark:text-indigo-500 mt-0.5 shrink-0" /> PhD Researcher specializing in AI</li>
-                  <li className="flex items-start gap-3"><FaCheckCircle className="text-indigo-500 dark:text-indigo-500 mt-0.5 shrink-0" /> Architect of modern curriculum</li>
-                  <li className="flex items-start gap-3"><FaCheckCircle className="text-indigo-500 dark:text-indigo-500 mt-0.5 shrink-0" /> 15+ years of academic excellence</li>
+                  <li className="flex items-start gap-3"><FaCheckCircle className="text-indigo-500 dark:text-indigo-500 mt-0.5 shrink-0" /> Research Development Program Director</li>
+                  <li className="flex items-start gap-3"><FaCheckCircle className="text-indigo-500 dark:text-indigo-500 mt-0.5 shrink-0" /> PhD researcher at VIT focusing on AI-driven bots</li>
+                  <li className="flex items-start gap-3"><FaCheckCircle className="text-indigo-500 dark:text-indigo-500 mt-0.5 shrink-0" /> Specialized in research and practical AI learning</li>
                 </ul>
               </div>
             </motion.div>
@@ -369,16 +410,16 @@ const Home = () => {
               className="flex flex-col sm:flex-row bg-white dark:bg-[#08101e] backdrop-blur-sm rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl transition-colors duration-500"
             >
               <div className="sm:w-2/5 p-2 bg-gradient-to-br from-blue-500 to-cyan-600 dark:from-blue-600/80 dark:to-cyan-700/80">
-                <img src="/boy.png" alt="Dr Baba Fakruddin Ali" className="w-full h-full object-cover rounded-3xl" />
+                <img src="/boy.png" alt="Dr. Baba Fakruddin Ali" className="w-full h-full object-cover rounded-3xl" />
               </div>
               <div className="sm:w-3/5 p-8 lg:p-10 flex flex-col justify-center">
-                <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white mb-1">Romy Roy</h3>
-                <p className="text-blue-600 dark:text-blue-300 font-bold text-sm tracking-wide uppercase mb-6 transition-colors duration-500">Co-founder & AI Architect</p>
+                <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white mb-1">Dr. Baba Fakruddin Ali</h3>
+                <p className="text-blue-600 dark:text-blue-300 font-bold text-sm tracking-wide uppercase mb-6 transition-colors duration-500">Co-founder, NRET</p>
                 <div className="w-12 h-1 bg-slate-200 dark:bg-slate-800 mb-6 rounded-full transition-colors duration-500"></div>
                 <ul className="space-y-3 text-slate-700 dark:text-slate-400 text-sm font-medium transition-colors duration-500">
-                  <li className="flex items-start gap-3"><FaCheckCircle className="text-blue-500 dark:text-blue-500 mt-0.5 shrink-0" /> Pioneer in AI & Machine Learning</li>
-                  <li className="flex items-start gap-3"><FaCheckCircle className="text-blue-500 dark:text-blue-500 mt-0.5 shrink-0" /> Built AI products used globally</li>
-                  <li className="flex items-start gap-3"><FaCheckCircle className="text-blue-500 dark:text-blue-500 mt-0.5 shrink-0" /> 20+ years in tech leadership</li>
+                  <li className="flex items-start gap-3"><FaCheckCircle className="text-blue-500 dark:text-blue-500 mt-0.5 shrink-0" /> Specialized in Embedded Systems, IoT, AI & ML</li>
+                  <li className="flex items-start gap-3"><FaCheckCircle className="text-blue-500 dark:text-blue-500 mt-0.5 shrink-0" /> Author of Introduction to ML</li>
+                  <li className="flex items-start gap-3"><FaCheckCircle className="text-blue-500 dark:text-blue-500 mt-0.5 shrink-0" /> Holds 3 patents in technology and innovation</li>
                 </ul>
               </div>
             </motion.div>
