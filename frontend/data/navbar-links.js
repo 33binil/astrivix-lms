@@ -12,6 +12,10 @@ export const NavbarLinks = [
     path: "/projects",
   },
   {
+    title: "Workshops",
+    path: "/workshops",
+  },
+  {
     title: "Internship",
     path: "/internship",
   },

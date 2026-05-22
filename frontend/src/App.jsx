@@ -15,6 +15,8 @@ import Projects from "./pages/Projects";
 import ProjectDetails from "./pages/ProjectDetails";
 import ProjectBooking from "./pages/ProjectBooking";
 import Internship from "./pages/Internship"
+import Workshops from "./pages/Workshops"
+import WorkshopBooking from "./pages/WorkshopBooking"
 import InternshipApplication from "./pages/InternshipApplication";
 import PageNotFound from "./pages/PageNotFound";
 import CourseDetails from './pages/CourseDetails';
@@ -106,6 +108,8 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:projectId" element={<ProjectDetails />} />
         <Route path="/book-project/:projectId" element={<ProjectBooking />} />
+        <Route path="/workshops" element={<Workshops />} />
+        <Route path="/workshop-booking" element={<WorkshopBooking />} />
         <Route path="/internship" element={<Internship />} />
         <Route path="/apply-internship/:internshipId" element={<InternshipApplication />} />
         <Route path="/catalog/:catalogName" element={<Catalog />} />
