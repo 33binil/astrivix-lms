@@ -3,7 +3,7 @@ import { Link, matchPath, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import { NavbarLinks } from "../../../data/navbar-links"
-import studyNotionLogo from '../../assets/Logo/logo.jpg'
+import studyNotionLogo from '../../assets/Logo/nret-logo.png'
 import { fetchCourseCategories } from './../../services/operations/courseDetailsAPI';
 
 import ProfileDropDown from '../core/Auth/ProfileDropDown'
@@ -100,7 +100,7 @@ const Navbar = () => {
                 {/* logo */}
                 <Link to="/" className="flex items-center gap-3 group">
                     <img src={studyNotionLogo} className="w-[45px] md:w-[60px] h-auto transition-transform duration-300 group-hover:scale-105" loading='lazy' alt="Logo" />
-                    <span className="text-slate-800 dark:text-white text-sm md:text-base font-bold tracking-tight hidden sm:block delay-150 transition-colors">Astrivix <span className="text-[#2A86F7]">{"."}</span> in</span>
+                    <span className="text-slate-800 dark:text-white text-sm md:text-base font-bold tracking-tight hidden sm:block delay-150 transition-colors">Nano Robotics <span className="text-[#2A86F7]">{"&"}</span> Embed Technologies</span>
                 </Link>
 
                 {/* Nav Links - visible for only large devices*/}

@@ -251,53 +251,53 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { 
-                icon: <FaBrain size={28} />, 
-                title: "AI & ML", 
+              {
+                icon: <FaBrain size={28} />,
+                title: "AI & ML",
                 desc: "Learn Artificial Intelligence and Machine Learning through practical applications and real-time projects.",
-                color: "from-emerald-400 to-teal-600", 
-                lightBg: "bg-emerald-50", 
-                ring: "hover:ring-emerald-200 dark:hover:ring-emerald-900/50" 
+                color: "from-emerald-400 to-teal-600",
+                lightBg: "bg-emerald-50",
+                ring: "hover:ring-emerald-200 dark:hover:ring-emerald-900/50"
               },
-              { 
-                icon: <FaWifi size={28} />, 
-                title: "IoT", 
+              {
+                icon: <FaWifi size={28} />,
+                title: "IoT",
                 desc: "Build smart connected systems using sensors, automation, and Internet of Things technologies.",
-                color: "from-amber-400 to-orange-500", 
-                lightBg: "bg-amber-50", 
-                ring: "hover:ring-amber-200 dark:hover:ring-amber-900/50" 
+                color: "from-amber-400 to-orange-500",
+                lightBg: "bg-amber-50",
+                ring: "hover:ring-amber-200 dark:hover:ring-amber-900/50"
               },
-              { 
-                icon: <FaMicrochip size={28} />, 
-                title: "Embedded Systems", 
+              {
+                icon: <FaMicrochip size={28} />,
+                title: "Embedded Systems",
                 desc: "Gain hands-on experience in microcontrollers, hardware programming, and embedded technologies.",
-                color: "from-rose-400 to-red-500", 
-                lightBg: "bg-rose-50", 
-                ring: "hover:ring-rose-200 dark:hover:ring-rose-900/50" 
+                color: "from-rose-400 to-red-500",
+                lightBg: "bg-rose-50",
+                ring: "hover:ring-rose-200 dark:hover:ring-rose-900/50"
               },
-              { 
-                icon: <FaRobot size={28} />, 
-                title: "Robotics", 
+              {
+                icon: <FaRobot size={28} />,
+                title: "Robotics",
                 desc: "Explore robotics through automation systems and AI-powered robotic projects.",
-                color: "from-sky-400 to-blue-600", 
-                lightBg: "bg-sky-50", 
-                ring: "hover:ring-sky-200 dark:hover:ring-sky-900/50" 
+                color: "from-sky-400 to-blue-600",
+                lightBg: "bg-sky-50",
+                ring: "hover:ring-sky-200 dark:hover:ring-sky-900/50"
               },
-              { 
-                icon: <FaPython size={28} />, 
-                title: "Python", 
+              {
+                icon: <FaPython size={28} />,
+                title: "Python",
                 desc: "Develop programming skills for AI, automation, and software development using Python.",
-                color: "from-purple-500 to-fuchsia-600", 
-                lightBg: "bg-purple-50", 
-                ring: "hover:ring-purple-200 dark:hover:ring-purple-900/50" 
+                color: "from-purple-500 to-fuchsia-600",
+                lightBg: "bg-purple-50",
+                ring: "hover:ring-purple-200 dark:hover:ring-purple-900/50"
               },
-              { 
-                icon: <FaLaptopCode size={28} />, 
-                title: "Web Development", 
+              {
+                icon: <FaLaptopCode size={28} />,
+                title: "Web Development",
                 desc: "Build responsive and modern web applications using industry-standard technologies.",
-                color: "from-blue-500 to-indigo-600", 
-                lightBg: "bg-blue-50", 
-                ring: "hover:ring-blue-200 dark:hover:ring-blue-900/50" 
+                color: "from-blue-500 to-indigo-600",
+                lightBg: "bg-blue-50",
+                ring: "hover:ring-blue-200 dark:hover:ring-blue-900/50"
               },
             ].map((domain, index) => (
               <motion.div
