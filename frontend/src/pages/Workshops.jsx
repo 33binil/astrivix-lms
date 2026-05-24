@@ -128,7 +128,7 @@ const Workshops = () => {
               <button onClick={() => navigate("/workshop-booking")} className="px-8 py-3.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold text-base shadow-lg shadow-blue-500/30 hover:scale-105 hover:shadow-blue-500/50 transition-all duration-300 flex items-center gap-2">
                 Explore Workshops <FiArrowRight />
               </button>
-              <button className="px-8 py-3.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-bold text-base hover:bg-slate-200 dark:hover:bg-white/10 transition-all duration-300 flex items-center gap-2">
+              <button onClick={() => navigate("/signup")} className="px-8 py-3.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-bold text-base hover:bg-slate-200 dark:hover:bg-white/10 transition-all duration-300 flex items-center gap-2">
                 Join NRET <FiArrowRight />
               </button>
             </motion.div>
@@ -247,7 +247,7 @@ const Workshops = () => {
             <p className="text-slate-600 dark:text-slate-400 text-lg mb-8 max-w-xl mx-auto">
               Take the first step towards building real-world projects and advancing your career in AI, Robotics, IoT, and Embedded Systems.
             </p>
-            <button className="px-8 py-3.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold text-base shadow-lg shadow-blue-500/30 hover:scale-105 hover:shadow-blue-500/50 transition-all duration-300 inline-flex items-center gap-2">
+            <button onClick={() => navigate("/signup")} className="px-8 py-3.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold text-base shadow-lg shadow-blue-500/30 hover:scale-105 hover:shadow-blue-500/50 transition-all duration-300 inline-flex items-center gap-2">
               Join NRET Now <FiArrowRight />
             </button>
           </motion.div>
