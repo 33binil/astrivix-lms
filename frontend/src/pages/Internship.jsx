@@ -5,8 +5,25 @@ import Footer from "../components/common/Footer"
 import { motion } from 'framer-motion'
 import { fadeIn } from "../components/common/motionFrameVarients"
 import { getAllInternships } from "../services/operations/internshipAPI"
-import { FiMapPin, FiClock, FiBriefcase, FiArrowRight, FiDollarSign, FiBook, FiStar } from 'react-icons/fi'
-import { GiReturnArrow } from 'react-icons/gi'
+import { FiMapPin, FiClock, FiBriefcase, FiArrowRight, FiDollarSign, FiBook, FiStar, FiMonitor, FiSearch } from 'react-icons/fi'
+
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.08 } }
+};
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
+
+const GlowBg = () => (
+  <>
+    <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none"></div>
+    <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-600/10 blur-[150px] pointer-events-none"></div>
+  </>
+);
 
 const Internship = () => {
   const navigate = useNavigate()
@@ -49,7 +66,7 @@ const Internship = () => {
 
   if (loading) {
     return (
-      <div className="bg-slate-50 dark:bg-[#000814] min-h-screen transition-colors duration-500">
+      <div className="bg-slate-50 dark:bg-[#030712] min-h-screen transition-colors duration-500">
         <Navbar />
         <div className="flex justify-center items-center h-96">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
@@ -60,306 +77,310 @@ const Internship = () => {
   }
 
   return (
-    <div className="bg-slate-50 dark:bg-[#000814] min-h-screen transition-colors duration-500">
+    <div className="bg-slate-50 dark:bg-[#030712] min-h-screen text-slate-800 dark:text-white overflow-x-hidden transition-colors duration-500">
       <Navbar />
 
-      {/* Hero Section */}
-      <motion.div
-        variants={fadeIn('up', 0.1)}
-        initial='hidden'
-        animate='show'
-        className="relative bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 px-6 sm:px-10 lg:px-20 pt-20 lg:pt-24 pb-16 sm:pb-20 lg:pb-24 transition-colors duration-500"
-      >
-        {/* Back Button */}
-        <div className="absolute left-4 top-20 lg:top-24 z-[100] flex items-center gap-2 cursor-pointer transition-all group" onClick={() => navigate(-1)}>
-          <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:border-blue-300 dark:group-hover:border-blue-600 transition-all">
-            <GiReturnArrow size={20} />
-          </div>
-          <span className="text-sm font-bold text-slate-500 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Back</span>
+      {/* ===== HERO SECTION ===== */}
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden pt-24 pb-16">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50 dark:from-[#030712] dark:via-[#0a1628] dark:to-[#030712]"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[150px] animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-indigo-600/20 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(59,130,246,0.3) 1px, transparent 0)', backgroundSize: '50px 50px' }}></div>
+
+        <div className="container mx-auto px-6 lg:px-12 relative z-10 w-full">
+          <motion.div
+            initial="hidden" animate="visible" variants={staggerContainer}
+            className="max-w-4xl mx-auto text-center pt-12"
+          >
+            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-sm font-semibold mb-6">
+              <FiMonitor size={14} /> Nano Robotics Embed Technologies
+            </motion.div>
+            <motion.h1 variants={fadeInUp} className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight mb-6">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-600">
+                Kickstart Your Career
+              </span>
+            </motion.h1>
+            <motion.p variants={fadeInUp} className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+              Gain real-world experience through our internship programs. Learn from <span className="text-blue-600 dark:text-blue-400 font-semibold">industry experts</span> and build your future in tech.
+            </motion.p>
+
+            {/* Search Bar */}
+            <motion.div variants={fadeInUp} className="max-w-2xl mx-auto relative">
+              <FiSearch className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500" size={20} />
+              <input
+                type="text"
+                placeholder="Search internships by title, company, or skill..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-12 pr-6 py-4 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 focus:border-blue-500/50 focus:outline-none transition-all duration-300"
+              />
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-8 mt-12">
+              <div className="text-center">
+                <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">50+</div>
+                <div className="text-slate-600 dark:text-slate-400">Partner Companies</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">100+</div>
+                <div className="text-slate-600 dark:text-slate-400">Interns Placed</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">95%</div>
+                <div className="text-slate-600 dark:text-slate-400">Placement Rate</div>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
+      </section>
 
-        <div className="text-center max-w-4xl mx-auto pt-16">
-          <h1 className="font-['Afacad'] text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-white mb-6 transition-colors duration-500">
-            Kickstart Your <span className="text-blue-600 dark:text-blue-400">Career</span>
-          </h1>
-          <p className="font-['Happy_Monkey'] text-lg sm:text-xl lg:text-2xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed mb-8 transition-colors duration-500">
-            Gain real-world experience through our internship programs. Learn from industry experts and build your future in tech.
-          </p>
-
-          {/* Search Bar */}
-          <div className="max-w-2xl mx-auto">
-            <input
-              type="text"
-              placeholder="Search internships by title, company, or skill..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-6 py-4 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-800 dark:text-white focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none transition-colors duration-500"
-            />
-          </div>
-
-          {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-8 mt-10">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">50+</div>
-              <div className="text-slate-600 dark:text-slate-400">Partner Companies</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">100+</div>
-              <div className="text-slate-600 dark:text-slate-400">Interns Placed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">95%</div>
-              <div className="text-slate-600 dark:text-slate-400">Placement Rate</div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Filters */}
-      <motion.div
-        variants={fadeIn('up', 0.2)}
-        initial='hidden'
-        animate='show'
-        className="px-6 sm:px-10 lg:px-20 py-8 bg-slate-100 dark:bg-[#0a1120] transition-colors duration-500"
-      >
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap gap-3 items-center">
-            <span className="text-slate-700 dark:text-slate-300 font-medium mr-3 transition-colors duration-500">Filter by:</span>
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setFilter(category)}
-                className={`px-4 py-2 rounded-full font-medium transition-colors ${filter === category
-                    ? "bg-blue-600 text-white"
-                    : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-600 hover:bg-gray-100 dark:hover:bg-slate-700"
+      {/* ===== FILTERS ===== */}
+      <section className="relative py-8 bg-slate-100 dark:bg-white/[0.02] border-y border-slate-200 dark:border-white/5">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="flex flex-wrap gap-3 items-center justify-between">
+            <div className="flex flex-wrap gap-3 items-center">
+              <span className="text-slate-600 dark:text-slate-400 font-medium text-sm mr-2">Filter by:</span>
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setFilter(category)}
+                  className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                    filter === category
+                      ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-lg shadow-blue-500/30"
+                      : "bg-slate-200/80 dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-600 dark:text-slate-400 hover:bg-slate-300 dark:hover:bg-white/10 hover:text-slate-800 dark:hover:text-white"
                   }`}
-              >
-                {category === "all" ? "All" : category}
-              </button>
-            ))}
-          </div>
-
-          <div className="mt-4 text-slate-700 dark:text-slate-300 transition-colors duration-500">
-            Showing <span className="font-bold">{filteredInternships.length}</span> internships
+                >
+                  {category === "all" ? "All" : category}
+                </button>
+              ))}
+            </div>
+            <span className="text-slate-500 dark:text-slate-400 text-sm">
+              Showing <span className="text-blue-600 dark:text-blue-400 font-bold">{filteredInternships.length}</span> internships
+            </span>
           </div>
         </div>
-      </motion.div>
+      </section>
 
-      {/* Internships Grid */}
-      <motion.div
-        variants={fadeIn('up', 0.3)}
-        initial='hidden'
-        animate='show'
-        className="px-6 sm:px-10 lg:px-20 py-12"
-      >
-        {filteredInternships.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {filteredInternships.map((internship, index) => (
-              <motion.div
-                key={internship._id}
-                variants={fadeIn('up', 0.1 * index)}
-                initial='hidden'
-                animate='show'
-                className="bg-white dark:bg-[#0a1120] rounded-xl shadow-lg border border-gray-200 dark:border-slate-700 overflow-hidden hover:shadow-xl transition-all duration-300 group"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={internship.imageUrl || 'https://via.placeholder.com/500x300/4F46E5/FFFFFF?text=Internship'}
-                    alt={internship.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  {internship.featured && (
-                    <span className="absolute top-3 right-3 px-3 py-1 bg-yellow-400 text-black text-xs font-bold rounded-full">
-                      Featured
-                    </span>
-                  )}
-                </div>
-
-                <div className="p-6">
-                  <h3 className="font-bold text-slate-800 dark:text-white text-lg mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                    {internship.title}
-                  </h3>
-
-                  <div className="flex flex-wrap gap-3 mb-4 text-sm text-slate-600 dark:text-slate-400">
-                    <span className="flex items-center gap-1">
-                      <FiMapPin /> {internship.location}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <FiClock /> {internship.duration}
-                    </span>
-                  </div>
-
-                  <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-3">
-                    {internship.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {internship.skills.slice(0, 4).map((skill, skillIndex) => (
-                      <span
-                        key={skillIndex}
-                        className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded-full font-medium"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                    {internship.skills.length > 4 && (
-                      <span className="px-2 py-1 bg-gray-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 text-xs rounded-full">
-                        +{internship.skills.length - 4}
+      {/* ===== INTERNSHIPS GRID ===== */}
+      <section className="py-16 relative">
+        <GlowBg />
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+          {filteredInternships.length > 0 ? (
+            <motion.div
+              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              {filteredInternships.map((internship, index) => (
+                <motion.div
+                  key={internship._id}
+                  variants={fadeInUp}
+                  className="group bg-white dark:bg-white/[0.03] backdrop-blur-sm border border-slate-200 dark:border-white/[0.08] rounded-xl overflow-hidden hover:shadow-lg dark:hover:bg-white/[0.06] hover:border-blue-500/30 transition-all duration-500 hover:-translate-y-1 h-full flex flex-col"
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-indigo-600/5"></div>
+                    <img
+                      src={internship.imageUrl || 'https://via.placeholder.com/500x300/1e3a5f/FFFFFF?text=Internship'}
+                      alt={internship.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    {internship.featured && (
+                      <span className="absolute top-3 right-3 px-3 py-1.5 bg-gradient-to-r from-amber-500 to-orange-600 text-white text-[10px] font-bold rounded-full flex items-center gap-1 shadow-lg">
+                        <FiStar size={10} /> Featured
                       </span>
                     )}
-                  </div>
-
-                  <div className="text-sm mb-4">
-                    <span className="flex items-center gap-1 text-green-600 dark:text-green-400 font-medium">
-                      <FiDollarSign /> {internship.stipend}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-50 dark:from-[#030712] via-transparent to-transparent opacity-60"></div>
+                    <span className="absolute bottom-3 left-3 px-3 py-1 bg-white/80 dark:bg-white/10 backdrop-blur-sm border border-slate-300 dark:border-white/20 text-slate-700 dark:text-white text-[10px] font-semibold rounded-full">
+                      {internship.type}
                     </span>
                   </div>
 
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="text-slate-800 dark:text-white font-bold text-lg mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-tight">
+                      {internship.title}
+                    </h3>
+
+                    <div className="flex flex-wrap gap-3 mb-4 text-sm text-slate-600 dark:text-slate-400">
+                      <span className="flex items-center gap-1">
+                        <FiMapPin /> {internship.location}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <FiClock /> {internship.duration}
+                      </span>
+                    </div>
+
+                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4 line-clamp-3 flex-1">
+                      {internship.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {internship.skills.slice(0, 4).map((skill, skillIndex) => (
+                        <span
+                          key={skillIndex}
+                          className="px-2.5 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-[10px] font-semibold rounded-full"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                      {internship.skills.length > 4 && (
+                        <span className="px-2.5 py-1 bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-500 dark:text-slate-400 text-[10px] rounded-full">
+                          +{internship.skills.length - 4}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="text-sm mb-4">
+                      <span className="flex items-center gap-1 text-green-600 dark:text-green-400 font-medium">
+                        <FiDollarSign /> {internship.stipend}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-white/5 mt-auto">
+                      <button
+                        onClick={() => handleApply(internship)}
+                        className="px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold text-sm shadow-lg shadow-blue-500/30 hover:scale-105 hover:shadow-blue-500/50 transition-all duration-300 flex items-center gap-2"
+                      >
+                        Apply Now <FiArrowRight size={14} />
+                      </button>
+                      <span className="text-blue-600 dark:text-blue-400 text-xs font-semibold">{internship.type}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center py-20"
+            >
+              <div className="max-w-md mx-auto">
+                <div className="w-20 h-20 bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <FiBriefcase className="w-8 h-8 text-slate-400 dark:text-slate-500" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-4">No Internships Found</h3>
+                <p className="text-slate-600 dark:text-slate-400 mb-6">
+                  {searchTerm || filter !== "all"
+                    ? "Try adjusting your search or filter criteria"
+                    : "No internships available at the moment. Check back soon!"}
+                </p>
+                {(searchTerm || filter !== "all") && (
                   <button
-                    onClick={() => handleApply(internship)}
-                    className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center justify-center gap-2"
+                    onClick={() => {
+                      setSearchTerm("")
+                      setFilter("all")
+                    }}
+                    className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold shadow-lg shadow-blue-500/30 hover:scale-105 transition-all duration-300"
+                  >
+                    Clear Filters
+                  </button>
+                )}
+              </div>
+            </motion.div>
+          )}
+        </div>
+      </section>
+
+      {/* ===== WHY CHOOSE US ===== */}
+      <section className="py-24 relative bg-slate-100 dark:bg-white/[0.02]">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-indigo-600/5"></div>
+        <GlowBg />
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true }}
+            variants={staggerContainer}
+            className="text-center max-w-3xl mx-auto mb-16"
+          >
+            <motion.span variants={fadeInUp} className="text-blue-600 dark:text-blue-400 font-bold tracking-wider uppercase text-sm mb-3 block">Why NRET</motion.span>
+            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-slate-800 dark:text-white mb-6">Why Choose Our Internships?</motion.h2>
+            <motion.p variants={fadeInUp} className="text-lg text-slate-600 dark:text-slate-400">We connect talented individuals with leading companies for meaningful learning experiences.</motion.p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-white dark:bg-white/[0.03] backdrop-blur-sm border border-slate-200 dark:border-white/[0.08] rounded-xl p-8 hover:shadow-lg dark:hover:bg-white/[0.06] hover:border-blue-500/30 transition-all duration-300 group">
+              <div className="w-14 h-14 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4 text-blue-600 dark:text-blue-400 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-300">
+                <FiBook size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Hands-on Learning</h3>
+              <p className="text-slate-600 dark:text-slate-400">Work on real projects that make an impact. Gain practical skills that employers value.</p>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-white dark:bg-white/[0.03] backdrop-blur-sm border border-slate-200 dark:border-white/[0.08] rounded-xl p-8 hover:shadow-lg dark:hover:bg-white/[0.06] hover:border-purple-500/30 transition-all duration-300 group">
+              <div className="w-14 h-14 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-4 text-purple-600 dark:text-purple-400 group-hover:shadow-[0_0_20px_rgba(147,51,234,0.2)] transition-all duration-300">
+                <FiStar size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-3 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">Expert Mentorship</h3>
+              <p className="text-slate-600 dark:text-slate-400">Learn from industry professionals who guide you throughout your internship journey.</p>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="bg-white dark:bg-white/[0.03] backdrop-blur-sm border border-slate-200 dark:border-white/[0.08] rounded-xl p-8 hover:shadow-lg dark:hover:bg-white/[0.06] hover:border-green-500/30 transition-all duration-300 group">
+              <div className="w-14 h-14 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center mb-4 text-green-600 dark:text-green-400 group-hover:shadow-[0_0_20px_rgba(34,197,94,0.2)] transition-all duration-300">
+                <FiBriefcase size={24} />
+              </div>
+              <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-3 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">Career Growth</h3>
+              <p className="text-slate-600 dark:text-slate-400">Many of our interns get offered full-time positions. Build connections that last.</p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== CTA SECTION ===== */}
+      <section className="py-24 relative">
+        <GlowBg />
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="max-w-5xl mx-auto"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-800 dark:text-white mb-6 leading-tight">
+                  Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Transform</span> Your Career?
+                </h2>
+                <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                  Take the first step towards your dream career. Our internship programs are designed to give you real-world experience and skills that employers value.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button
+                    onClick={() => navigate("/contact")}
+                    className="px-8 py-4 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold text-base shadow-lg shadow-blue-500/30 hover:scale-105 hover:shadow-blue-500/50 transition-all duration-300 inline-flex items-center gap-2"
                   >
                     Apply Now <FiArrowRight />
                   </button>
+                  <button
+                    onClick={() => navigate("/catalog")}
+                    className="px-8 py-4 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-bold text-base hover:bg-slate-200 dark:hover:bg-white/10 transition-all duration-300"
+                  >
+                    Browse Courses
+                  </button>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-20">
-            <div className="max-w-md mx-auto">
-              <div className="w-20 h-20 bg-gray-200 dark:bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                <FiBriefcase className="w-10 h-10 text-gray-400" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-4 transition-colors duration-500">
-                No Internships Found
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400 mb-6 transition-colors duration-500">
-                {searchTerm || filter !== "all"
-                  ? "Try adjusting your search or filter criteria"
-                  : "No internships available at the moment. Check back soon!"}
-              </p>
-              {(searchTerm || filter !== "all") && (
-                <button
-                  onClick={() => {
-                    setSearchTerm("")
-                    setFilter("all")
-                  }}
-                  className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-                >
-                  Clear Filters
-                </button>
-              )}
-            </div>
-          </div>
-        )}
-      </motion.div>
-
-      {/* Why Choose Us Section */}
-      <motion.div
-        variants={fadeIn('up', 0.4)}
-        initial='hidden'
-        animate='show'
-        className="px-6 sm:px-10 lg:px-20 py-16 sm:py-20 lg:py-24 bg-slate-100 dark:bg-[#0a1120] transition-colors duration-500"
-      >
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="font-['Afacad'] text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-white mb-6 transition-colors duration-500">
-              Why Choose Our Internships?
-            </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto transition-colors duration-500">
-              We connect talented individuals with leading companies for meaningful learning experiences.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-slate-700">
-              <div className="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4">
-                <FiBook className="text-blue-600 dark:text-blue-400 text-2xl" />
+              <div className="relative">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-6 rounded-2xl text-white shadow-lg">
+                    <div className="text-4xl font-bold mb-2">50+</div>
+                    <div className="text-blue-200 text-sm">Partner Companies</div>
+                  </div>
+                  <div className="bg-gradient-to-br from-green-500 to-teal-600 p-6 rounded-2xl text-white shadow-lg mt-8">
+                    <div className="text-4xl font-bold mb-2">500+</div>
+                    <div className="text-green-200 text-sm">Students Placed</div>
+                  </div>
+                  <div className="bg-gradient-to-br from-orange-500 to-red-600 p-6 rounded-2xl text-white shadow-lg">
+                    <div className="text-4xl font-bold mb-2">100+</div>
+                    <div className="text-orange-200 text-sm">Hiring Partners</div>
+                  </div>
+                  <div className="bg-gradient-to-br from-purple-500 to-pink-600 p-6 rounded-2xl text-white shadow-lg mt-8">
+                    <div className="text-4xl font-bold mb-2">95%</div>
+                    <div className="text-purple-200 text-sm">Success Rate</div>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-3">Hands-on Learning</h3>
-              <p className="text-slate-600 dark:text-slate-400">
-                Work on real projects that make an impact. Gain practical skills that employers value.
-              </p>
             </div>
-
-            <div className="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-slate-700">
-              <div className="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mb-4">
-                <FiStar className="text-purple-600 dark:text-purple-400 text-2xl" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-3">Expert Mentorship</h3>
-              <p className="text-slate-600 dark:text-slate-400">
-                Learn from industry professionals who guide you throughout your internship journey.
-              </p>
-            </div>
-
-            <div className="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-slate-700">
-              <div className="w-14 h-14 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mb-4">
-                <FiBriefcase className="text-green-600 dark:text-green-400 text-2xl" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-3">Career Growth</h3>
-              <p className="text-slate-600 dark:text-slate-400">
-                Many of our interns get offered full-time positions. Build connections that last.
-              </p>
-            </div>
-          </div>
+          </motion.div>
         </div>
-      </motion.div>
-
-      {/* CTA Section */}
-      <motion.div
-        variants={fadeIn('up', 0.5)}
-        initial='hidden'
-        animate='show'
-        className="px-6 sm:px-10 lg:px-20 py-16 sm:py-20 lg:py-24 bg-white dark:bg-[#0a1120] transition-colors duration-500"
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="font-['Afacad'] text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-white mb-6 transition-colors duration-500">
-                Ready to <span className="text-blue-600 dark:text-blue-400">Transform</span> Your Career?
-              </h2>
-              <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 transition-colors duration-500">
-                Take the first step towards your dream career. Our internship programs are designed to give you real-world experience and skills that employers value.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="/contact"
-                  className="bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transition-colors font-semibold text-lg text-center"
-                >
-                  Apply Now
-                </a>
-                <a
-                  href="/catalog"
-                  className="border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 px-8 py-4 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors font-semibold text-lg text-center"
-                >
-                  Browse Courses
-                </a>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-6 rounded-2xl text-white">
-                  <div className="text-4xl font-bold mb-2">50+</div>
-                  <div className="text-blue-100">Partner Companies</div>
-                </div>
-                <div className="bg-gradient-to-br from-green-500 to-teal-600 p-6 rounded-2xl text-white mt-8">
-                  <div className="text-4xl font-bold mb-2">500+</div>
-                  <div className="text-green-100">Students Placed</div>
-                </div>
-                <div className="bg-gradient-to-br from-orange-500 to-red-600 p-6 rounded-2xl text-white">
-                  <div className="text-4xl font-bold mb-2">100+</div>
-                  <div className="text-orange-100">Hiring Partners</div>
-                </div>
-                <div className="bg-gradient-to-br from-purple-500 to-pink-600 p-6 rounded-2xl text-white mt-8">
-                  <div className="text-4xl font-bold mb-2">95%</div>
-                  <div className="text-purple-100">Success Rate</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
+      </section>
 
       <Footer />
     </div>
