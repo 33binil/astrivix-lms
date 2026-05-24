@@ -42,9 +42,9 @@ const SectionHeader = ({ badge, title, desc }) => (
     variants={staggerContainer}
     className="text-center max-w-3xl mx-auto mb-16"
   >
-    <motion.span variants={fadeInUp} className="text-blue-400 font-bold tracking-wider uppercase text-sm mb-3 block">{badge}</motion.span>
-    <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-white mb-6">{title}</motion.h2>
-    {desc && <motion.p variants={fadeInUp} className="text-lg text-slate-400">{desc}</motion.p>}
+    <motion.span variants={fadeInUp} className="text-blue-600 dark:text-blue-400 font-bold tracking-wider uppercase text-sm mb-3 block">{badge}</motion.span>
+    <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-extrabold text-slate-800 dark:text-white mb-6">{title}</motion.h2>
+    {desc && <motion.p variants={fadeInUp} className="text-lg text-slate-600 dark:text-slate-400">{desc}</motion.p>}
   </motion.div>
 );
 
@@ -101,19 +101,19 @@ const Workshops = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-[#030712] min-h-screen text-white overflow-x-hidden">
+    <div className="bg-slate-50 dark:bg-[#030712] min-h-screen text-slate-800 dark:text-white overflow-x-hidden transition-colors duration-500">
       <Navbar />
 
       {/* ===== 1. HERO SECTION ===== */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#030712] via-[#0a1628] to-[#030712]"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50 dark:from-[#030712] dark:via-[#0a1628] dark:to-[#030712]"></div>
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[150px] animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-indigo-600/20 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }}></div>
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(59,130,246,0.3) 1px, transparent 0)', backgroundSize: '50px 50px' }}></div>
 
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-4xl mx-auto text-center">
-            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-semibold mb-8">
+            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-sm font-semibold mb-8">
               <FiMonitor size={14} /> Nano Robotics Embed Technologies
             </motion.div>
             <motion.h1 variants={fadeInUp} className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight mb-6">
@@ -121,14 +121,14 @@ const Workshops = () => {
                 Workshops & Practical Learning
               </span>
             </motion.h1>
-            <motion.p variants={fadeInUp} className="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed">
-              Hands-on training in <span className="text-blue-400 font-semibold">AI, Robotics, IoT,</span> and <span className="text-blue-400 font-semibold">Embedded Systems</span> — gain practical skills through project-based learning and industry mentorship at NRET.
+            <motion.p variants={fadeInUp} className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+              Hands-on training in <span className="text-blue-600 dark:text-blue-400 font-semibold">AI, Robotics, IoT,</span> and <span className="text-blue-600 dark:text-blue-400 font-semibold">Embedded Systems</span> — gain practical skills through project-based learning and industry mentorship at NRET.
             </motion.p>
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button onClick={() => navigate("/workshop-booking")} className="px-8 py-3.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold text-base shadow-lg shadow-blue-500/30 hover:scale-105 hover:shadow-blue-500/50 transition-all duration-300 flex items-center gap-2">
                 Explore Workshops <FiArrowRight />
               </button>
-              <button className="px-8 py-3.5 rounded-full bg-white/5 border border-white/20 text-white font-bold text-base hover:bg-white/10 transition-all duration-300 flex items-center gap-2">
+              <button className="px-8 py-3.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-bold text-base hover:bg-slate-200 dark:hover:bg-white/10 transition-all duration-300 flex items-center gap-2">
                 Join NRET <FiArrowRight />
               </button>
             </motion.div>
@@ -153,12 +153,12 @@ const Workshops = () => {
               { title: "Workshops & Internships", desc: "Transition seamlessly from workshops to internship opportunities at NRET." },
               { title: "Real-World Projects", desc: "Build production-ready projects that demonstrate your capabilities to employers." },
             ].map((item, i) => (
-              <motion.div key={i} variants={fadeInUp} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/[0.08] hover:border-blue-500/30 transition-all duration-300 group">
-                <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4 text-blue-400 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-300">
+              <motion.div key={i} variants={fadeInUp} className="bg-white dark:bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10 rounded-xl p-6 hover:shadow-lg dark:hover:bg-white/[0.08] hover:border-blue-500/30 transition-all duration-300 group">
+                <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4 text-blue-600 dark:text-blue-400 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-300">
                   <FiCheck size={20} />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-2">{item.title}</h3>
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -175,11 +175,11 @@ const Workshops = () => {
             className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto"
           >
             {features.map((f, i) => (
-              <motion.div key={i} variants={fadeInUp} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 text-center hover:bg-white/[0.08] hover:border-blue-500/30 transition-all duration-300 group">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 text-blue-400 bg-blue-500/10 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-300">
+              <motion.div key={i} variants={fadeInUp} className="bg-white dark:bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10 rounded-xl p-5 text-center hover:shadow-lg dark:hover:bg-white/[0.08] hover:border-blue-500/30 transition-all duration-300 group">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 text-blue-600 dark:text-blue-400 bg-blue-500/10 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-300">
                   {f.icon}
                 </div>
-                <h3 className="text-white text-sm font-semibold">{f.title}</h3>
+                <h3 className="text-slate-800 dark:text-white text-sm font-semibold">{f.title}</h3>
               </motion.div>
             ))}
           </motion.div>
@@ -187,7 +187,7 @@ const Workshops = () => {
       </section>
 
       {/* ===== 7. LEARNING ECOSYSTEM ===== */}
-      <section className="py-24 relative bg-white/[0.02]">
+      <section className="py-24 relative bg-slate-100 dark:bg-white/[0.02]">
         <GlowBg />
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <SectionHeader badge="Ecosystem" title="Learning Ecosystem" desc="A complete ecosystem designed to support your growth from beginner to professional." />
@@ -196,11 +196,11 @@ const Workshops = () => {
             className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto"
           >
             {ecosystemItems.map((item, i) => (
-              <motion.div key={i} variants={fadeInUp} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 text-center hover:bg-white/[0.08] hover:border-blue-500/30 transition-all duration-300 group">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 text-blue-400 bg-blue-500/10 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-300">
+              <motion.div key={i} variants={fadeInUp} className="bg-white dark:bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10 rounded-xl p-5 text-center hover:shadow-lg dark:hover:bg-white/[0.08] hover:border-blue-500/30 transition-all duration-300 group">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 text-blue-600 dark:text-blue-400 bg-blue-500/10 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all duration-300">
                   {item.icon}
                 </div>
-                <h3 className="text-white text-sm font-semibold">{item.title}</h3>
+                <h3 className="text-slate-800 dark:text-white text-sm font-semibold">{item.title}</h3>
               </motion.div>
             ))}
           </motion.div>
@@ -208,22 +208,22 @@ const Workshops = () => {
       </section>
 
       {/* ===== GALLERY SECTION ===== */}
-      <section className="py-24 relative bg-white/[0.02]">
+      <section className="py-24 relative bg-slate-100 dark:bg-white/[0.02]">
         <GlowBg />
         <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center mb-16">
-          <span className="text-blue-400 font-bold tracking-wider uppercase text-sm mb-3 block">Community</span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6">Life at NRET</h2>
-          <p className="text-slate-400 font-medium text-lg max-w-2xl mx-auto">Glimpses of our vibrant community, hands-on workshops, and memorable events that shape the future of our students.</p>
+          <span className="text-blue-600 dark:text-blue-400 font-bold tracking-wider uppercase text-sm mb-3 block">Community</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800 dark:text-white mb-6">Life at NRET</h2>
+          <p className="text-slate-600 dark:text-slate-400 font-medium text-lg max-w-2xl mx-auto">Glimpses of our vibrant community, hands-on workshops, and memorable events that shape the future of our students.</p>
         </div>
 
-        <div className="relative w-full overflow-hidden flex py-12 border-y border-white/5">
+        <div className="relative w-full overflow-hidden flex py-12 border-y border-slate-200 dark:border-white/5">
           <motion.div
             animate={{ x: [0, -4202] }}
             transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
             className="flex gap-8 whitespace-nowrap pl-8"
           >
             {[...marqueeImages, ...marqueeImages, ...marqueeImages].map((imgSrc, idx) => (
-              <div key={idx} className="w-[350px] h-[250px] rounded-3xl overflow-hidden relative shrink-0 border border-white/10 bg-[#0a1120] p-3 hover:-translate-y-2 transition-all duration-300">
+              <div key={idx} className="w-[350px] h-[250px] rounded-3xl overflow-hidden relative shrink-0 border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0a1120] p-3 hover:-translate-y-2 transition-all duration-300">
                 <img src={imgSrc} alt={`Gallery Image ${idx + 1}`} className="w-full h-full object-cover rounded-2xl" />
               </div>
             ))}
@@ -239,12 +239,12 @@ const Workshops = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-12"
+            className="max-w-3xl mx-auto text-center bg-white dark:bg-white/5 backdrop-blur-sm border border-slate-200 dark:border-white/10 rounded-2xl p-12"
           >
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-800 dark:text-white mb-6 leading-tight">
               Join NRET to gain hands-on experience <br />and industry-relevant skills!
             </h2>
-            <p className="text-slate-400 text-lg mb-8 max-w-xl mx-auto">
+            <p className="text-slate-600 dark:text-slate-400 text-lg mb-8 max-w-xl mx-auto">
               Take the first step towards building real-world projects and advancing your career in AI, Robotics, IoT, and Embedded Systems.
             </p>
             <button className="px-8 py-3.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold text-base shadow-lg shadow-blue-500/30 hover:scale-105 hover:shadow-blue-500/50 transition-all duration-300 inline-flex items-center gap-2">
