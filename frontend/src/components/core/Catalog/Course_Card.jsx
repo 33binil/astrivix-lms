@@ -56,7 +56,7 @@ function Course_Card({ course, Height, viewMode = "grid" }) {
               </div>
               <div className="flex items-center gap-1 text-slate-400">
                 <FaUserGraduate />
-                <span>{course?.studentsEnroled?.length || 0} students</span>
+                <span>{course?.studentsEnrolled?.length || 0} students</span>
               </div>
               {course?.totalDuration && (
                 <div className="flex items-center gap-1 text-slate-400">
@@ -129,7 +129,7 @@ function Course_Card({ course, Height, viewMode = "grid" }) {
           <div className="flex items-center gap-3 text-xs text-slate-500 mb-4">
             <div className="flex items-center gap-1">
               <FaUserGraduate />
-              <span>{course?.studentsEnroled?.length || 0}</span>
+              <span>{course?.studentsEnrolled?.length || 0}</span>
             </div>
             {course?.totalDuration && (
               <div className="flex items-center gap-1">

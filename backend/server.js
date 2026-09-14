@@ -39,8 +39,8 @@ app.use(
       // Allow requests with no origin (like mobile apps or curl requests)
       if (!origin) return callback(null, true);
 
-      // Allow all localhost and 127.0.0.1 requests for development
-      if (origin.includes('localhost') || origin.includes('127.0.0.1')) {
+      // Allow all localhost, 127.0.0.1 and vercel.app deployments
+      if (origin.includes('localhost') || origin.includes('127.0.0.1') || origin.endsWith('.vercel.app') || origin.includes('vercel.app')) {
         return callback(null, true);
       }
 

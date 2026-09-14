@@ -181,8 +181,8 @@ function Catalog() {
                                 <div className="text-left">
                                     <p className="text-2xl font-bold text-white leading-none">
                                         {showAllCourses 
-                                            ? allCoursesData.reduce((acc, c) => acc + (c.studentsEnroled?.length || 0), 0)
-                                            : catalogPageData?.selectedCategory?.courses?.reduce((acc, c) => acc + (c.studentsEnroled?.length || 0), 0)
+                                            ? allCoursesData.reduce((acc, c) => acc + (c.studentsEnrolled?.length || 0), 0)
+                                            : catalogPageData?.selectedCategory?.courses?.reduce((acc, c) => acc + (c.studentsEnrolled?.length || 0), 0)
                                         }
                                     </p>
                                     <p className="text-slate-400 text-sm mt-1">Students</p>
@@ -271,7 +271,7 @@ function Catalog() {
                         </div>
                     ) : sortedCourses.length > 0 ? (
                         <motion.div
-                            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
+                            initial="hidden" animate="visible" variants={staggerContainer}
                             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
                         >
                             {sortedCourses.map((course, index) => (
